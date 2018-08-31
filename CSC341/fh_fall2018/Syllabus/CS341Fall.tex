@@ -1,0 +1,297 @@
+\documentclass[twoside]{article}
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+\usepackage{longtable}
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+\usepackage{fancyhdr}
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+%\renewcommand{\@seccntformat}{}
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{CSC 341 Fall 2018} % Custom header text
+\fancyfoot[RO,RE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage[hidelinks]{hyperref} % For hyperlinks in the PDF
+\fancypagestyle{plain}{%
+   \fancyhf{}
+   \fancyfoot[C]{\iffloatpage{}{\thepage}}
+   \renewcommand{\headrulewidth}{0pt}}
+%\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+\pagestyle{plain}%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\Large\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{CSC 341: Automata, Formal Languages, and Computational Complexity} % Article title
+\author{%
+\textsc{Fall 2018}\\[1ex] % Your name
+%MW 10:30 AM - 1:20 PM, Room \# B185\\
+Department of Computer Science\\ Grinnell College\\  % Your institution
+%\normalsize \href{mailto:john@smith.com}{john@smith.com} % Your email address
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+%\normalsize University of Utah \\ % Second author's institution
+%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+}
+\date{} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+%\begin{abstract}
+%\noindent \blindtext % Dummy abstract text - replace \blindtext with your abstract text
+%\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Print the title
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Instructor}
+
+{\bf Fahmida Hamid \\Assistant Professor\\}
+Office: Noyce-3811\\
+Phone: (641) 269-3271\\
+Office Hours: Tue(11:00 AM - 1:00 PM) \& Thur(2:00 PM - 4:00 PM)\\
+Email: \href{mailto: hamidfah@grinnell.edu}{ hamidfah@grinnell.edu}
+
+\section{Class}
+\begin{itemize}
+\item CSCI 341: MWF (1:00 PM - 1:50 PM) {Room \#Noyce-1245}
+\end{itemize}
+
+\section{Textbook}
+{\bf Introduction to the Theory of Computation}, third edition, Michael Sipser.\\
+CENGAGE Learning. ISBN-13: 978-1-133-18779-0, ISBN-10: 1-133-18779-X.
+
+\section{Prerequisite}
+ CSC 207 and either MAT 218, CSC 208 or MAT 208. 
+
+\section{Course Overview}
+In your journey through computation, you likely have noticed that many problems can be solved with the same solution through a skill you have honed called abstraction. Through this process, you may have noticed more nuanced connections between problems. Some problems require some translation before being solved using the solution to another problem. Some problems are immune this sort of transformation and feel fundamentally more difficult than others. Some problems feel downright impossible: are they actually impossible?
+
+\par In this course, we study the theory of computation where we use mathematics to model problems of increasing complexity and study their relationships with each other. Although some applications may be discussed from time to time, this course will emphasize the formal underpinnings and theory of computer science.
+\par By going through this modeling process, we can:
+\begin{itemize}
+\item Deeply understand a problem and its potential corner cases.
+\item Prove properties of a problem, e.g., the correctness of potential solutions or whether said problem has a solution at all.
+\item Reduce one problem to others of similar complexity.
+\item Categorize this problem as easier or harder than other problems in a precise way.
+\end{itemize}
+By the end of the course, we will explore the limits of computation.
+\begin{itemize}
+\item Are there problems that are intractable in practice?
+\item Are there problems that can provably never have a solution?
+\end{itemize}
+After this course, you will be able to:
+\begin{itemize}
+\item Manipulate and reason about mathematical definitions like computer programs.
+\item Model problems using mathematics and use these models to perform the techniques described above.
+\item Understand when a problem is intractable or undecidable.
+\end{itemize}
+\section{Communication}
+\begin{description}
+\item [Course website] You will find the course website here: \url{http://www.cs.grinnell.edu/~hamidfah/courses/csc341fall2018/}. The website will give you the detailed schedule of the class. I may need to update it from time to time. 
+\item [Pioneerweb] We will use the pioneer-web system for submitting homework and keeping track of your grades. A course account (CSC-341-01) is created and you all are added to it. You will find the course materials (syllabus, lecture notes, homework problems, etc.) posted in this account. 
+\item [Email] You are encouraged to email me if you need to set up a meeting beyond the dedicated office hours. You are also welcome to ask any question through email. I will try to get back to you within next 24 hours. If your question is of interest to others in the class, we can discuss it in the class or I can send a message to all using the pioneerweb course account.
+\end{description}
+\section{Activities}
+\begin{description}
+\item [Readings] For every day of class, I will give you a short reading to prepare you for the topic-of-the-day.
+  You are expected to finish this reading before class begins.
+\item [Class Meetings] Most of our class meetings will feature in-class activities, e.g., discussion and group exercises, designed to help you play and explore the various mathematical definitions we study in this course.
+\item [Homework] The bulk of your practice comes from the weekly homework which contain problems that test your knowledge of the material as well as give you the opportunity to apply your knowledge to in different contexts. We will accept typed as well as hand-written submissions. If hand-written, scan your work, compile it as a single pdf (or any sort of image file) and upload on the pioneer-web course account. 
+\item [Class Presentation] By 11/14/2018, you will form a group of two (your choice) and pick an NP-Complete problem to study. You will have to notify me as each group should work on different problems. We will dedicate two classes (12/03 and 12/05) when you will be presenting the problem that you and your group member studied. 
+\item [Exams] Finally, to ensure that you have adequately mastered the core concepts of the class, I will conduct two in-class examinations as well as a final.
+\end{description}
+
+\section{Attendance}
+Attendance at all lectures is expected. While attendance won't always be taken, instructors appreciate knowing why students are absent. If you miss a class for some personal reason/sickness, please send me a quick note. Also, please let me know in advance of planned absences. Note that regularly missing class is one of the potential special circumstances that could lead to a discretionary reduction in grade.
+
+\section{Homework Submission Policy}
+
+All assigned work is due on the date and at the time specified. For homework, we will use a late day policy to help you manage your work load throughout the semester. This policy works as follows:
+\begin{itemize}
+\item You have six late days to use in the semester.
+\item You may use one late day to turn in one homework up to 24 hours after the due date, no questions asked.
+\item You do not need to tell us that you are using a late day.
+\item Late days are automatically noted and tracked by the instructor.
+\item You may use up to two late days on a given homework.
+\item If you are working in a group, each member must use a late day in order to extend the deadline by 24 hours.
+%\item If you are working in a group, at least one member in the group must have a late day in order to extend
+%the deadline by 24 hours. In this situation, the member with a late day burns one late day; the other
+%member does not burn any (because they do not have any to burn). Basically interpret this as the most
+%generous way of using up late days.
+\item As homework may be handwritten, exceptions will not be granted for computer system malfunctions.
+\item The lowest grade in homework will be dropped. For example, if you miss one homework and you are past due date, then you get a zero in that homework. But it will be dropped at the end of the semester.
+%Regardless of the number of late days you have, *all homework is ultimately due at 10:30 PM on the final day of class*.
+\end{itemize}
+Beyond late days, homework may not be turned in after the due date. This is a strict policy in order to help us get
+your feedback to you in a timely manner. Only the most exceptional of circumstances discussed well in advance
+with the instructor (as much as the situation allows) will be entertained. In case of medical emergencies, written
+medical excuses from a medical practitioner (or a responsible person from student affairs) may be grounds for granting an extension. %Also, it is sometimes possible to make prior arrangements for late submissions due to anticipated absences; be sure to talk to the instructor well before the anticipated absence.
+
+\section{Grading Policy}
+My goal in the course is for everyone to be proficient in the big concepts outlined in the Overview.
+While this is a lot of content, I firmly believe that everyone is capable of mastering this material --- earning an A in the process-with enough time, dedication, and proper study skills.
+My initial plan is to start with the following breakdown:
+\begin{itemize}
+\item Homework: 40\%
+\item Hour Tests: 30\%
+\item Class Presentation: 10\%
+\item Final Exam: 20\%
+\end{itemize}
+Percentages may be adjusted upwards or downwards at the discretion of the instructor. 
+
+\section{Grading Scale}
+We will use the following scale to determine your final grade in the course:
+\begin{itemize}
+\item A: 93-100\%
+\item A-: 90-93\%
+\item B+: 86-90\%
+\item B: 82-86\%
+\item B-: 78-82\%
+\item C+: 74-78\%
+\item C: 68-74\%
+\item D: 55-68\%
+\item F: 0-55\%
+\end{itemize}
+If you obtain the (weighted) percentages of points listed above, you are guaranteed at least the corresponding grade. %There is no curve in this course.
+
+\section{Access Statement}
+If you have specific physical, psychiatric, or learning disabilities and require accommodations, please let me know early in the semester so that your learning needs may be appropriately met. Note that you will also need to provide documentation of your disability to the Dean for Student Academic Support and Advising, Autumn Wilke, located on the 3rd floor of the Rosenfield Center (x3702).
+
+\section{Academic Responsibility}
+Students are expected to read and abide by the principles clearly explained in the \href{https://catalog.grinnell.edu/content.php?catoid=12&navoid=2537#Honesty_in_Academic_Work}{Student Handbook}. When in doubt, talk to your professor.
+
+\section{Academic Honesty}
+
+All academic work at Grinnell College must follow standard academic practice regarding quotation, paraphrase, and citation. Grinnell's Student Handbook provides basic guidelines. 
+\begin{description}
+\item [Homework:] Homework exercises should be entirely your own individual work, not done in collaboration with other students in the class, and not quoted or paraphrased, in whole or in part,  from external sources. [Note: Although the Web can be useful for reference, much material on the Web is of poor quality. You are responsible for the quality of what you turn in, regardless of the source of the material.]
+
+\item [Class Participation:] In many sessions of the class, we will prepare solutions or partial solutions to certain problems taken from the textbook, to be discussed in class rather than to be written up and submitted for credit. The constraint mentioned in the preceding paragraph does not apply to these problems.
+
+\item [Group Presentation:] If a group of two or three people work together on a presentation, the group should turn in one written report, and all names in the group must appear at the top of the first page. A sample template will be provided later for the written report. 
+
+\item [Plagiarism:] If I encounter clear indications of plagiarism or academic dishonesty, the Committee on Academic Standing with deal with them. I will impose penalties for academic dishonesty only as directed by the committee.
+\end{description}
+
+\section{Exams}
+There will be two one-hour exams and a comprehensive final. The one-hour exams will be {\bf Friday 05
+October} and {\bf Monday 05 November}. The final examination will be on {\bf Thursday December 20 (2:00 pm - 5:00 pm)}. 
+\par Missing exams because of illness will require an excuse from a medical practioner. Make-up exams for
+excuses other than illness will be given only in extraordinary circumstances and only at the discretion of
+the instructor. If you expect that you will need a make-up exam, contact your lecture instructor at least one
+week in advance. All the exams will be closed-book unless I decide it to be otherwise.
+% If a grade needs to be adjusted, please see your instructor as soon as possible after
+%the return of the exam. 
+\section{Tentative Schedule}
+\begin{longtable}{lllll}
+%\centering
+%\caption{Tentative Schedule for 8 Weeks}
+%\label{my-label}
+%\tiny
+%\begin{tabular}{lllll}
+\toprule
+Weeks & Topic & Reading & Assignments\\\toprule
+\endhead
+8/31 & Introduction \& Preliminaries & &\\\midrule%
+9/03 & Proofs/Proof Techniques & Sipser 0.1-0.4 &\\
+9/05 & Proofs (Cont..) &  &\\
+9/07 & Deterministic Finite Automata & Sipser 1.1 & Assignment 01\\\midrule
+9/10 & Nondeterministic Finite Automata & Sipser 1.2 &\\%
+9/12 & Finite Automata (Cont...)& \\
+9/14 & Regular Expressions& Sipser 1.3 & Assignment 02\\\midrule
+9/17 &  Nonregular Languages & Sipser 1.4&\\%
+9/19 & Context Free Grammar & Sipser 2.1&  &\\
+9/21 & Context Free Grammar (Cont...) & &Assignment 03\\\midrule
+9/24 & Context Free Languages & Sipser 2.2 - 2.3& \\%
+9/26 & Turing Machines & Sipser 3.1& \\
+9/28 & Turing Machines (Cont...)& &Assignment 04\\\midrule
+10/01 & Turing Machine Variants & Sipser 3.2 & \\%
+10/03 & Pause for breath& &\\
+10/05 & {\bf Hour-Exam 01} & &\\\midrule
+10/08 & Algorithms & Sipser 3.3 &\\
+10/10 & Decidability& Sipser 4.1&\\%
+10/12 & Undecidability & Sipser 4.2& Assignment 05\\\midrule
+10/15 & The Halting Problem & &\\
+10/17 & Turing-Recognizable Languages & &\\
+10/19 & Recursion Theorem& Sipser 6.1 & \\\midrule
+10/22 & Fall Break & &\\
+10/24 & Fall Break & &\\
+10/26 & Fall Break & &\\\midrule
+10/29 & Reducibility & Sipser 5.1 - 5.2&\\%
+10/31 & Mapping Reducibility& Sipser 5.3 &Assignment 06\\
+11/02 & Review (so far ...)& &\\\midrule
+11/05 & {\bf Hour-Exam 02}& & \\%
+11/07 &Measuring Complexity & Section 7.1 &\\
+11/09 & Class P& Sipser 7.2 & \\\midrule
+11/12 & Class NP& Sipser 7.3&\\%
+11/14 & NP-Completeness & Sipser  7.4& \\
+11/16 & NP-Complete Problems & Sipser 7.5 &Assignment 07\\\midrule
+11/19 & Pause for breath & &\\%
+11/21 & Number Theory &  &  \\
+%11/23 & Cryptography (Cont...) & &  \\
+11/23 & {\bf Thanksgiving Break} & &  \\\midrule
+11/26 & Cryptography & Sipser 10.6&\\
+11/28 & Cryptography & &Assignment 08\\
+11/30 &PSPACE \& Savitch's Theorem &Sipser 8.1 - 8.3 &  \\\midrule
+12/03 & Class Presentations on NP-Complete Problems& & Assignment 09\\%
+12/05 & Class Presentations on NP-Complete Problems&& (class presentation) \\
+12/07 & PSPACE Completeness & Sipser 8.4 &\\\midrule
+%12/07 &  Lambda Calculus &&\\%
+12/10 & Open Problems in Automata Theory&&\\
+12/12 & Review & & \\
+12/14 & Review  & & \\\midrule
+12/20 & {\bf Final Exam} & & \\\bottomrule
+\end{longtable}
+
+\section{More ...}
+\begin{description}
+\item[Syllabus] This syllabus may be modified as the course progresses. Notice of such changes will be announced in class or through course website.
+\item [Talk] I will be delighted to talk to you about anything related to the course. Feel free to email me or stop by my office.
+%\item [Email] 
+\end{description}
+\centering\bf{Have a Great Semester!}
+\end{document}
