@@ -7,6 +7,7 @@
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{enumitem}
 %SetFonts
 
 %SetFonts
@@ -18,7 +19,7 @@
 
 \begin{document}
 \maketitle
-\section{Introduction}
+\section{Day 01: Introduction}
 \subsection{Welcome Speech!}
 Greet the students!
 Introduce myself, spend 5 mins talking about myself. Tell them about your office hours and how to reach you or schedule an appointment. Then introduce the mentor (David) and the grader (Faizaan). Now talk a little bit about the course policies. Highlight the exams dates, talk about the homework and submission policy, the p-web, collaboration policy, etc.
@@ -34,10 +35,10 @@ Introduce myself, spend 5 mins talking about myself. Tell them about your office
 Now start talking about the course: {\bf This is a traditional theory course in CS!} So, what do we cover in this course? Why is it important? Let me start with some examples. 
 
 \subsection{Reduce one problem to another}
-We try to solve a lot of problems every day: we define algorithms; based on them we write programs; we solve mathematical equations to establish the logical correctness of our statements or hypothesis, and so on. Sometimes we succeed, sometimes we fail. Sometimes we use the same technique to solve two apparently different problems. I am sure you have experienced these situations. That said, I would like to say that {\bf there are a lot of subtle connections between problems.} 
+We try to solve a lot of problems every day: we define algorithms; based on them we write programs; we solve mathematical equations to establish the logical correctness of our statements or hypothesis, and so on. Sometimes we succeed, sometimes we fail. Sometimes we use the same technique	 to solve two apparently different problems. I am sure you have experienced these situations. That said, I would like to say that {\bf there are a lot of subtle connections between problems.} 
 \par Let's say that we have only 2 problems ($A$ and $B$). One has solved problem $B$. No one has been able to solve problem $A$. One day you have discovered that you can model problem $A$ as problem $B$. Great! Now you know the solution to problem $B$ as well as $A$. Once you get the solution of $B$, you just have to convert it back to the parameters of $A$. 
 Here are the steps:
-\begin{enumerate}
+\begin{enumerate}[noitemsep, nolistsep]
 \item Model $A$ as $B$
 \item Solve $B$ and produce result $R$
 \item Convert $R$ using the parameters of $A$
@@ -69,12 +70,12 @@ With the advent of science, have we discovered solutions to all the problems? Ca
 
 {\bf Example: talk about circuit satisfiability}
  
-\section{Course Overview}
+\subsection{Course Overview}
 In this course, we focus on three traditionally central area of the theory of computation: automata, computability, and complexity.
 
-\section{Goals and Objectives}
+\subsubsection{Goals and Objectives}
 There is no chronological order in which we will attain our goals but here is what we think we are going to practice in the course.
-\begin{enumerate}
+\begin{enumerate}[noitemsep, nolistsep]
 \item to understand a problem and it's corner cases.
 \item to learn and practice how to write formal proofs.
 \item to understand when a problem is intractable or undecidable
@@ -84,6 +85,23 @@ There is no chronological order in which we will attain our goals but here is wh
 \subsection{Proof Techniques}
 Give the hand-out (A proof written in 6 possible ways) to the students. Tell them that we will go over it in the next class.
 
+\section{Day 02: Proof Techniques}
 
+\subsection{Looking Back!}
+I have a few questions for you:
+\begin{itemize}[noitemsep, nolistsep]
+\item In few sentences state the objectives and goals of this class.
+\item Name the central area of the theory of computation. Define each area in one/two sentence(s).
+\item Think of a real life problem (A) that can be reduced to another problem (B) that you have learnt in the some of the previous classes.
+\item We have two problems in hand: sort the list of enrolled students in alphabetic order of their names and from an undirected graph, find the largest clique? Are both of the problems equally difficult? Why/why not?
+\end{itemize}
+Return the copy to your instructor with you and your partner's name on it.
+
+\subsection{Proof Techniques}
+Spend 5 minutes on Proof 1 from Professor Henry's note. How do you feel about it? Is it very easy to understand? Explain the proof to your friend.\\
+Spend 5 minutes on Proof 2 from Professor Henry's note. How do you feel about it? Is it very easy to understand? How different is proof 2 from proof 1?
+Explain the proof to your friend. Which one would you prefer if asked to write a proof of a non-trivial statement.\\
+Spend 5 minutes on Proof 3 from Professor Henry's note. How do you feel about it? Is it very easy to understand? How different is proof 3 from the previous ones?
+Which one would you prefer if asked to write a proof of a non-trivial statement.\\
 
 \end{document}  
