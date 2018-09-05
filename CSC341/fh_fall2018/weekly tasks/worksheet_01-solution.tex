@@ -35,14 +35,19 @@ Name \underline{\hspace{10cm}}
  \item Sort the list of enrolled students of a class in alphabetic order of their names.
  \item From an undirected graph, find the largest clique. \emph {(Note: A clique of a graph G is a complete subgraph of G.)}
 \end{enumerate}
-Are both of the problems equally difficult? Why/why not? Just put down your thoughts. Your statement (at least at this moment) does not have to be mathematically proven.
+Are both of the problems equally difficult? Why/why not? Just put down your thoughts. Your statement (at least at this moment) does not have to me mathematically proven.
 \end{enumerate}
 \newpage
 \section{Proof Techniques}
 Using either construction/contradiction/induction strategy, prove that
 
 \begin{theorem*}
-Two integers $a$ and $b$ are consecutive if and only if $b = a + 1$ 
+Two integers $a$ and $b$ are consecutive if and only if $b = a + 1$. You can safely assume that $b > a$.
+\subsection{Solution: {\bf Proof by Contradiction}}
+Let us assume that $a$ and $b$ are two consecutive integers and $b = a + m$, where $m \ne 1$. \\
+Since $1$ is the smallest positive integer, we assume that $m > 1$. Now if we look at the natural number series,
+ there are $(m-1)$ distinct number, $a+1, a+2, \dots , a+ (m-1)$, between $a$ and $b$.
+ Hence,  we arrive at the decision that $a$ and $b$ are consecutive if and only if $m = 1$.  
 \end{theorem*}
 
 \end{document}  

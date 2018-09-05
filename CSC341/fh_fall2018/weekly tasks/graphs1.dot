@@ -1,0 +1,7 @@
+graph G1 {
+   a [shape = circle];
+   b [shape = circle];
+   a -- b;
+   label = "case B: graph G";
+   rankdir=LR;
+}

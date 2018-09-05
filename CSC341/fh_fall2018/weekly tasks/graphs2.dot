@@ -1,0 +1,9 @@
+graph G1 {
+   u [shape = circle];
+   v [shape = circle];
+   w [shate = circle];
+   u -- v;
+   u -- w;
+   label = "sample graph G'";
+   rankdir=LR;
+}

@@ -1,0 +1,5 @@
+graph G {
+   a [shape = circle];
+   b [shape = circle];
+   label = "case A: graph G"
+}

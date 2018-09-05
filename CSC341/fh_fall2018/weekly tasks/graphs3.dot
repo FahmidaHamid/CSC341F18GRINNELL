@@ -1,0 +1,8 @@
+graph G1 {
+   u [shape = circle];
+   v [shape = circle];
+   u -- v;
+
+   label = "sample graph G''";
+   rankdir=LR;
+}
